@@ -79,7 +79,24 @@ This lab simulates the IT infrastructure of a small organisation with three depa
 
 ## Screenshots
 
-*(Add your screenshots here in a /screenshots folder — one per task listed above)*
+| Step | Evidence |
+| --- | --- |
+| CSV upload for bulk user creation | ![CSV upload screen for bulk user creation](screenshots/01-csv-user-upload.png) |
+| Microsoft 365 Business Premium license assignment | ![Microsoft 365 Business Premium license assignment](screenshots/02-license-assignment.png) |
+| Users created successfully | ![All lab users created successfully](screenshots/03-users-created.png) |
+| IT-SUPPORT group members | ![IT-SUPPORT group membership](screenshots/04-it-support-group-members.png) |
+| HR-Department members | ![HR-Department membership](screenshots/05-hr-department-members.png) |
+| Finance-Department members | ![Finance-Department membership](screenshots/06-finance-department-members.png) |
+| User sign-in blocked | ![James Okafor sign-in blocked](screenshots/07-user-blocked.png) |
+| Block sign-in confirmation | ![Block sign-in confirmation](screenshots/08-block-confirmed.png) |
+| User sign-in restored | ![James Okafor sign-in restored](screenshots/09-user-unblocked.png) |
+| Helpdesk Administrator role on Sarah Mitchell profile | ![Sarah Mitchell Helpdesk Administrator role](screenshots/10-sarah-helpdesk-role.png) |
+| RBAC role assignment | ![Helpdesk Administrator role assignment](screenshots/11-rbac-role-assignment.png) |
+| Conditional Access MFA grant control | ![Conditional Access require MFA grant control](screenshots/12-conditional-access-grant.png) |
+| Conditional Access policy setup | ![Conditional Access policy in report-only mode](screenshots/13-conditional-access-policy.png) |
+| Audit logs | ![Audit logs showing admin activity](screenshots/14-audit-logs.png) |
+| Intune compliance policy basics | ![Intune compliance policy basics](screenshots/15-intune-compliance-basics.png) |
+| Intune compliance policy creation | ![Intune compliance policy creation](screenshots/16-intune-policy-created.png) |
 
 ---
 
