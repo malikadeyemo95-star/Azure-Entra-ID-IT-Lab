@@ -77,26 +77,144 @@ This lab simulates the IT infrastructure of a small organisation with three depa
 
 ---
 
-## Screenshots
+## Evidence Walkthrough
 
-| Step | Evidence |
-| --- | --- |
-| CSV upload for bulk user creation | ![CSV upload screen for bulk user creation](screenshots/01-csv-user-upload.png) |
-| Microsoft 365 Business Premium license assignment | ![Microsoft 365 Business Premium license assignment](screenshots/02-license-assignment.png) |
-| Users created successfully | ![All lab users created successfully](screenshots/03-users-created.png) |
-| IT-SUPPORT group members | ![IT-SUPPORT group membership](screenshots/04-it-support-group-members.png) |
-| HR-Department members | ![HR-Department membership](screenshots/05-hr-department-members.png) |
-| Finance-Department members | ![Finance-Department membership](screenshots/06-finance-department-members.png) |
-| User sign-in blocked | ![James Okafor sign-in blocked](screenshots/07-user-blocked.png) |
-| Block sign-in confirmation | ![Block sign-in confirmation](screenshots/08-block-confirmed.png) |
-| User sign-in restored | ![James Okafor sign-in restored](screenshots/09-user-unblocked.png) |
-| Helpdesk Administrator role on Sarah Mitchell profile | ![Sarah Mitchell Helpdesk Administrator role](screenshots/10-sarah-helpdesk-role.png) |
-| RBAC role assignment | ![Helpdesk Administrator role assignment](screenshots/11-rbac-role-assignment.png) |
-| Conditional Access MFA grant control | ![Conditional Access require MFA grant control](screenshots/12-conditional-access-grant.png) |
-| Conditional Access policy setup | ![Conditional Access policy in report-only mode](screenshots/13-conditional-access-policy.png) |
-| Audit logs | ![Audit logs showing admin activity](screenshots/14-audit-logs.png) |
-| Intune compliance policy basics | ![Intune compliance policy basics](screenshots/15-intune-compliance-basics.png) |
-| Intune compliance policy creation | ![Intune compliance policy creation](screenshots/16-intune-policy-created.png) |
+The screenshots below are arranged as a full IT support story, not just isolated
+screens. They show how a junior Microsoft 365 / Entra ID administrator would
+onboard users, assign licenses, place users into department groups, manage
+account access, delegate limited admin permissions, apply MFA policy controls,
+review audit activity, and begin Intune compliance configuration.
+
+### 1. Bulk User Creation and Licensing
+
+I started by using the Microsoft 365 Admin Center bulk user creation workflow.
+This is a realistic helpdesk/admin task because new starter batches are often
+prepared through CSV files instead of creating every user manually.
+
+![CSV upload screen for bulk user creation](screenshots/01-csv-user-upload.png)
+
+The users were assigned the Germany location and Microsoft 365 Business Premium
+licenses. This proves that the accounts were not just created as empty objects;
+they were prepared with the correct licensing needed for Microsoft 365 services.
+
+![Microsoft 365 Business Premium license assignment](screenshots/02-license-assignment.png)
+
+After the CSV import completed, the admin center confirmed the lab users were
+created successfully. The six named accounts represent realistic employees
+across IT Support, HR, and Finance.
+
+![All lab users created successfully](screenshots/03-users-created.png)
+
+### 2. Department Group Membership
+
+I created separate Microsoft 365 groups for each department and assigned users
+based on their role. This demonstrates a common access management pattern:
+users should receive access through groups rather than one-off manual
+permissions wherever possible.
+
+The IT support group contains James Okafor and Sarah Mitchell. This group
+represents technical staff who may need access to support resources,
+documentation, or shared operational tools.
+
+![IT-SUPPORT group membership](screenshots/04-it-support-group-members.png)
+
+The HR department group contains Laura Becker and Tom Fischer. Keeping HR users
+in a dedicated group supports cleaner access control for sensitive HR files and
+team resources.
+
+![HR-Department membership](screenshots/05-hr-department-members.png)
+
+The Finance department group contains Anna Kovacs and David Muller. This
+separates finance access from HR and IT support access, which is important for
+least-privilege administration.
+
+![Finance-Department membership](screenshots/06-finance-department-members.png)
+
+### 3. User Lifecycle: Offboarding and Re-Onboarding
+
+To simulate offboarding or a compromised account response, I blocked James
+Okafor from signing in. This is a standard first-line support/security action
+when a user leaves the company or when account misuse is suspected.
+
+![James Okafor sign-in blocked](screenshots/07-user-blocked.png)
+
+The admin center then confirmed that sign-in was blocked and that active
+Microsoft sessions would be signed out. This is important because the action is
+not only configured; it is visibly confirmed by the platform.
+
+![Block sign-in confirmation](screenshots/08-block-confirmed.png)
+
+I then reversed the action to simulate re-onboarding or restoring access after
+verification. This shows the full lifecycle workflow: restrict access, verify
+the change, and restore access when appropriate.
+
+![James Okafor sign-in restored](screenshots/09-user-unblocked.png)
+
+### 4. RBAC and Least-Privilege Delegation
+
+I assigned Sarah Mitchell the Helpdesk Administrator role. This is a practical
+RBAC example: a support technician receives enough permission to help users
+without being given Global Administrator rights.
+
+![Sarah Mitchell Helpdesk Administrator role](screenshots/10-sarah-helpdesk-role.png)
+
+The role assignment screen shows the Helpdesk Administrator role selected under
+admin center access. This demonstrates the principle of least privilege and
+shows that the permission was deliberately assigned, not assumed.
+
+![Helpdesk Administrator role assignment](screenshots/11-rbac-role-assignment.png)
+
+### 5. Conditional Access and MFA Control
+
+I configured a Conditional Access policy to require multifactor authentication.
+The grant control screenshot shows the key security control: access is granted
+only when MFA is satisfied.
+
+![Conditional Access require MFA grant control](screenshots/12-conditional-access-grant.png)
+
+The policy targets all users and all cloud apps, but it is set to Report-only
+mode. This is an important real-world safety choice: administrators can monitor
+the effect of a policy before enforcing it and risking user lockout.
+
+![Conditional Access policy in report-only mode](screenshots/13-conditional-access-policy.png)
+
+### 6. Audit Logs and Administrative Traceability
+
+I reviewed Entra audit logs after making changes. The log view shows admin
+activity such as role assignment, group membership changes, user updates, and
+policy creation. This proves the lab includes not only configuration work, but
+also verification and audit readiness.
+
+![Audit logs showing admin activity](screenshots/14-audit-logs.png)
+
+### 7. Intune Device Compliance Policy
+
+I opened Microsoft Intune and started creating a Windows compliance policy.
+This extends the lab beyond identity administration into endpoint management,
+which is relevant for modern IT support roles.
+
+![Intune compliance policy basics](screenshots/15-intune-compliance-basics.png)
+
+The Windows 10/11 compliance policy basics screen shows the named policy
+`Require Device Compliance - Windows`. This documents the start of a compliance
+baseline that can later be connected to security requirements such as
+encryption, device health, and Defender risk level.
+
+![Intune compliance policy creation](screenshots/16-intune-policy-created.png)
+
+## What This Project Proves
+
+This lab demonstrates that I can perform and document practical Microsoft 365
+and Entra ID support work, including:
+
+- creating users in bulk through the Microsoft 365 Admin Center
+- assigning Microsoft 365 Business Premium licenses
+- organizing users into department-based Microsoft 365 groups
+- blocking and restoring user sign-in as part of account lifecycle management
+- assigning a limited Helpdesk Administrator role using RBAC
+- configuring Conditional Access for MFA in Report-only mode
+- reviewing audit logs to confirm and investigate admin activity
+- starting an Intune Windows compliance policy for endpoint governance
 
 ---
 
